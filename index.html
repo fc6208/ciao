@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美容家電体験ラボ（京田辺）</title>
+<style>
+  :root{
+    --pink:#c97f6c;
+    --pink-text:#a8503d;
+    --pink-light:#f7e8e3;
+    --gold:#9c7327;
+    --gold-text:#7a5a1d;
+    --brown:#2a1d17;
+    --wine:#8e3b3b;
+    --wine-dark:#6e2c2c;
+    --bg:#fffaf7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","游ゴシック","Meiryo",sans-serif;
+    background:var(--bg);
+    color:#2e2018;
+    line-height:1.9;
+    font-weight:500;
+    font-size:18px;
+  }
+  .hero{
+    text-align:center;
+    padding:60px 20px 40px;
+    background:linear-gradient(180deg,#fffaf7 0%, #fdf3ef 100%);
+  }
+  .hero img{
+    width:380px;
+    max-width:85%;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:1.9rem;
+    color:var(--wine-dark);
+    letter-spacing:0.05em;
+    margin-top:10px;
+    font-weight:bold;
+  }
+  .hero p.lead{
+    margin-top:18px;
+    font-size:1.2rem;
+    color:#2e2018;
+    font-weight:500;
+  }
+  section{
+    max-width:780px;
+    margin:0 auto;
+    padding:36px 24px;
+    border-top:1px solid #f0ddd5;
+  }
+  section h2{
+    font-size:1.5rem;
+    color:var(--pink-text);
+    border-left:4px solid var(--pink);
+    padding-left:12px;
+    margin-bottom:18px;
+    letter-spacing:0.03em;
+    font-weight:bold;
+  }
+  section h3{
+    font-size:1.25rem;
+    color:var(--brown);
+    margin:20px 0 10px;
+    letter-spacing:0.02em;
+    font-weight:bold;
+  }
+  section h3.sub{
+    font-size:1.15rem;
+    color:var(--gold-text);
+    margin:24px 0 10px;
+    border-bottom:1px dashed #ecd9d0;
+    padding-bottom:6px;
+    font-weight:bold;
+  }
+  p{
+    margin-bottom:10px;
+  }
+  ul.feature-list{
+    list-style:none;
+    padding:0;
+    margin-bottom:10px;
+  }
+  ul.feature-list li{
+    padding:8px 0 8px 28px;
+    border-bottom:1px dashed #efdcd4;
+    position:relative;
+  }
+  ul.feature-list li::before{
+    content:"❀";
+    color:var(--pink);
+    position:absolute;
+    left:0;
+  }
+  ul.plain{
+    list-style:none;
+    padding:0 0 0 4px;
+    margin-bottom:10px;
+  }
+  ul.plain li{
+    padding:4px 0 4px 20px;
+    position:relative;
+  }
+  ul.plain li::before{
+    content:"・";
+    position:absolute;
+    left:0;
+    color:var(--gold-text);
+  }
+  .device-card{
+    background:#fff;
+    border:1px solid #f0ddd5;
+    border-radius:16px;
+    padding:20px 22px;
+    margin-bottom:20px;
+  }
+  .device-card h3{
+    margin-top:0;
+    color:var(--brown);
+    font-weight:bold;
+  }
+  .device-card .label{
+    color:var(--brown);
+    font-size:1.05rem;
+    font-weight:bold;
+    margin-top:12px;
+    text-decoration:underline;
+  }
+  .check{
+    background:#c97f6c;
+    border-radius:12px;
+    padding:16px 20px;
+    margin-bottom:14px;
+    color:#fff;
+  }
+  .check p{
+    color:#fff;
+  }
+  .check .mark{
+    color:#fff;
+    font-weight:bold;
+    display:block;
+    margin-bottom:6px;
+    font-size:1.2rem;
+  }
+  .note{
+    font-size:1.05rem;
+    color:#3d2b24;
+    font-weight:500;
+    margin-top:14px;
+  }
+  .price-box{
+    background:var(--pink-light);
+    border-radius:16px;
+    padding:24px;
+    text-align:center;
+    font-size:1.3rem;
+  }
+  .price-box .amount{
+    font-size:2.2rem;
+    color:var(--brown);
+    font-weight:bold;
+  }
+  .info-table{
+    width:100%;
+    border-collapse:collapse;
+  }
+  .info-table td{
+    padding:10px 8px;
+    vertical-align:top;
+    border-bottom:1px solid #f0ddd5;
+  }
+  .info-table td:first-child{
+    width:120px;
+    color:var(--gold-text);
+    font-weight:bold;
+    white-space:nowrap;
+  }
+  .cta{
+    text-align:center;
+  }
+  .cta a{
+    display:inline-block;
+    margin:10px;
+    padding:14px 34px;
+    background:var(--wine);
+    color:#fff;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:1.15rem;
+    letter-spacing:0.05em;
+    box-shadow:0 4px 12px rgba(142,59,59,0.35);
+    transition:transform 0.2s;
+  }
+  .cta a:hover{
+    transform:translateY(-2px);
+  }
+  .cta a.secondary{
+    background:#fff;
+    color:var(--wine-dark);
+    border:1px solid var(--wine);
+    box-shadow:none;
+  }
+  .cta a.line{
+    background:#06C755;
+    color:#fff;
+    box-shadow:0 4px 12px rgba(6,199,85,0.35);
+  }
+  .cta a.instagram{
+    background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+    color:#fff;
+    box-shadow:0 4px 12px rgba(193,53,132,0.35);
+  }
+  footer{
+    text-align:center;
+    padding:40px 20px 60px;
+    color:#3d2b24;
+    font-weight:500;
+    font-size:1rem;
+  }
+  footer .rep{
+    margin-top:6px;
+    color:var(--brown);
+    font-weight:bold;
+  }
+  a.map-link{
+    color:var(--pink-text);
+    word-break:break-all;
+    font-weight:bold;
+  }
+</style>
+</head>
+<body>
+ 
+<div class="hero">
+  <img src="logo.png" alt="CIAO 美容家電体験ラボ ロゴ">
+  <h1>女性のための 美容家電体験ラボ</h1>
+  <p class="lead">最新の美容家電を、販売なし・勧誘なしで安心して体験できる<br>“女性のための美容家電体験スペース” です。<br>気になる家電を 実際に触って・試して・比べて いただけます。</p>
+</div>
+ 
+<section>
+  <h2> 美容家電とは？どんな悩みを解決できるのか</h2>
+  <p>美容家電は、サロン級のケアを自宅で手軽に行えるように設計された“ホームエステ機器”です。<br>しかし、実際にはこんなお悩みを多くの方が抱えています。</p>
+</section>
+ 
+<section>
+  <h2> みんなの本音の悩み</h2>
+ 
+  <h3 class="sub">■ どれを選べばいいかわからない</h3>
+  <ul class="plain">
+    <li>種類が多すぎて違いがわからない</li>
+    <li>口コミは当てにならない</li>
+    <li>高額だから失敗したくない</li>
+  </ul>
+ 
+  <h3 class="sub">■ 効果があるのか不安</h3>
+  <ul class="plain">
+    <li>本当にリフトアップする？</li>
+    <li>肌に合う？痛くない？</li>
+    <li>続けられるか心配</li>
+  </ul>
+ 
+  <h3 class="sub">■ 店頭では“本音で試せない”</h3>
+  <ul class="plain">
+    <li>店員さんが見ていて落ち着かない</li>
+    <li>じっくり比較できない</li>
+    <li>髪が濡れていないとドライヤーの実力がわからない</li>
+  </ul>
+ 
+  <h3 class="sub">■ 自分の悩みに合うのか判断できない</h3>
+  <ul class="plain">
+    <li>たるみ</li>
+    <li>乾燥</li>
+    <li>毛穴</li>
+    <li>くすみ</li>
+    <li>髪のパサつき</li>
+  </ul>
+  <p class="note">→ どの家電がどの悩みに効くのかが不明確</p>
+</section>
+ 
+<section>
+  <h2> 美容家電体験ラボで“実際に体験できる効果”</h2>
+  <p>ここでは、販売や勧誘が一切ないため、<br>本当に自分に合うかどうかを、安心して・じっくり・比較しながら体験できます。</p>
+ 
+  <div class="device-card">
+    <h3> ① 美顔器（RF・EMS・LED）</h3>
+    <p class="label">体験できる効果</p>
+    <ul class="plain">
+      <li>フェイスラインの引き締まり</li>
+      <li>目元のハリ感アップ</li>
+      <li>肌のもっちり感</li>
+      <li>血行促進によるトーンアップ</li>
+    </ul>
+    <p class="label">こんな悩みに刺さる</p>
+    <ul class="plain">
+      <li>たるみ</li>
+      <li>ほうれい線</li>
+      <li>くすみ</li>
+      <li>乾燥</li>
+    </ul>
+  </div>
+ 
+  <div class="device-card">
+    <h3> ② フェイススチーマー</h3>
+    <p class="label">体験できる効果</p>
+    <ul class="plain">
+      <li>毛穴がふわっと開いて汚れが落ちやすく</li>
+      <li>肌が柔らかくなり、化粧水の入りが段違い</li>
+      <li>リラックス効果も高い</li>
+    </ul>
+    <p class="label">こんな悩みに刺さる</p>
+    <ul class="plain">
+      <li>毛穴の黒ずみ</li>
+      <li>乾燥</li>
+      <li>肌のごわつき</li>
+    </ul>
+  </div>
+ 
+  <div class="device-card">
+    <h3> ③ ドライヤー（速乾・美髪タイプ）</h3>
+    <p class="label">体験できる効果</p>
+    <ul class="plain">
+      <li>乾くスピードの違い</li>
+      <li>仕上がりのツヤ</li>
+      <li>指通りのなめらかさ</li>
+      <li>髪の広がりが収まる感覚</li>
+    </ul>
+    <p class="label">こんな悩みに刺さる</p>
+    <ul class="plain">
+      <li>パサつき</li>
+      <li>うねり</li>
+      <li>広がり</li>
+      <li>乾かすのが面倒</li>
+    </ul>
+  </div>
+ 
+  <div class="device-card">
+    <h3> ④ ヘッドスパ・温熱ケア家電</h3>
+    <p class="label">体験できる効果</p>
+    <ul class="plain">
+      <li>頭皮のコリがほぐれる</li>
+      <li>目の疲れが軽くなる</li>
+      <li>血行が良くなり顔のむくみもスッキリ</li>
+    </ul>
+    <p class="label">こんな悩みに刺さる</p>
+    <ul class="plain">
+      <li>眼精疲労</li>
+      <li>頭皮の硬さ</li>
+      <li>むくみ</li>
+      <li>首肩の疲れ</li>
+    </ul>
+  </div>
+</section>
+ 
+<section>
+  <h2> 美容家電体験ラボで得られる価値</h2>
+  <div class="check">
+    <p><span class="mark">✔ “買う前に試せる”安心感</span><br>
+    高額な美容家電こそ、実際に触ってみないとわからない。<br>
+    ここでは 販売なし・勧誘なし なので、純粋に体験だけできます。</p>
+  </div>
+  <div class="check">
+    <p><span class="mark">✔ 自分の悩みに合うものがわかる</span><br>
+    「何を選べばいいかわからない」を解消。<br>
+    あなたの悩みに合う家電を一緒に探せます。</p>
+  </div>
+  <div class="check">
+    <p><span class="mark">✔ 1時間じっくり比較できる</span><br>
+    店頭ではできない、<br>
+    “本音で試す” 体験ができます。</p>
+  </div>
+  <p class="note">※販売行為は一切ありません。<br>※体験後のアンケートのみご協力をお願いします。</p>
+</section>
+ 
+<section>
+  <h2>◆ 料金</h2>
+  <div class="price-box">
+    <span class="amount">1,000円</span>（税込）／1回（約60分）<br>
+    <span class="note">お支払いは当日、現金にてお願いいたします。</span>
+  </div>
+</section>
+ 
+<section>
+  <h2>◆ 営業時間</h2>
+  <p>9:00〜17:00（完全予約制）</p>
+</section>
+ 
+<section>
+  <h2>◆ 開催場所</h2>
+  <table class="info-table">
+    <tr><td>会場</td><td>京田辺市商工会館</td></tr>
+    <tr><td>住所</td><td>〒610-0334　京都府京田辺市田辺中央4丁目3-3</td></tr>
+    <tr><td>アクセス</td><td>JR京田辺駅から徒歩約3分<br>近鉄新田辺駅から徒歩約3〜4分</td></tr>
+  </table>
+</section>
+ 
+<section>
+  <h2>◆ アクセス（Googleマップ）</h2>
+  <p>下記リンクより地図をご確認いただけます。</p>
+  <p><a class="map-link" href="https://maps.app.goo.gl/PEgEY1ebZ1FgQKDP6" target="_blank">Googleマップで見る</a></p>
+</section>
+ 
+<section class="cta">
+  <h2 style="text-align:center;border-left:none;padding-left:0;">◆ ご予約はこちら</h2>
+  <p>美容家電体験のご予約は、以下のフォームからお願いいたします。<br>（ご希望の日時を選択できます）</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXhmJmvctyINaiBLUolT7fJTdc7RE-mTmxc_73-PFy_vflBg/viewform" target="_blank">予約フォーム</a>
+ 
+  <h2 style="text-align:center;border-left:none;padding-left:0;margin-top:30px;">◆ LINE公式アカウント</h2>
+  <p>最新情報・予約・アクセスがまとめて確認できます。<br>ぜひご登録ください。</p>
+  <a class="line" href="https://line.me/R/ti/p/@054tvyam">LINE公式はこちら</a>
+
+  <h2 style="text-align:center;border-left:none;padding-left:0;margin-top:30px;">◆ Instagram</h2>
+  <p>体験会の様子や最新情報を発信しています。<br>ぜひフォローしてください。</p>
+  <a class="instagram" href="https://www.instagram.com/biyoukaden_taikenlab?igsh=Z2w1d29jYmw5dGM2" target="_blank">Instagramはこちら</a>
+</section>
+ 
+<footer>
+  <p>◆ 運営</p>
+  <p class="rep">美容家電体験ラボ（代表：藤井 茶織）</p>
+</footer>
+ 
+</body>
+</html>
